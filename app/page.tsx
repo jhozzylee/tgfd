@@ -7,7 +7,7 @@ import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "TGF Destinations | 2026 Collection",
   description: "Explore curated luxury travel experiences and bespoke itineraries. Your next chapter begins with TGF Destinations.",
-  metadataBase: new URL("https://tgf-destinations.vercel.app"), // CHANGE THIS TO YOUR ACTUAL DOMAIN
+  metadataBase: new URL("https://tgfd-delta.vercel.app"), // CHANGE THIS TO YOUR ACTUAL DOMAIN
   openGraph: {
     title: "TGF Destinations | 2026 Travel Collection",
     description: "Discover our world of bespoke travel and exclusive retreats.",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/TGFD-og.jpeg", // Must be in the /public folder
-        width: 1200,
-        height: 630,
+        width: 936,
+        height: 1280,
         alt: "TGF Destinations Luxury Travel Brochure",
       },
     ],
