@@ -3,22 +3,21 @@ import Image from "next/image";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 // ================= SEO & OPEN GRAPH METADATA =================
-// This is what social media platforms (WhatsApp, LinkedIn, etc.) read.
 export const metadata: Metadata = {
-  title: "TGF Destinations | 2026 Collection",
-  description: "Explore curated luxury travel experiences and bespoke itineraries. Your next chapter begins with TGF Destinations.",
-  metadataBase: new URL("https://tgfd-delta.vercel.app/"), // CHANGE THIS TO YOUR ACTUAL DOMAIN
+  title: "TGFDestinations | 2026 Collection",
+  description: "Explore curated luxury travel experiences and bespoke itineraries. Your next chapter begins with TGFDestinations.",
+  metadataBase: new URL("https://tgfd-delta.vercel.app/"),
   openGraph: {
-    title: "TGF Destinations | 2026 Travel Collection",
+    title: "TGFDestinations | 2026 Travel Collection",
     description: "Discover our world of bespoke travel and exclusive retreats.",
     url: "/",
-    siteName: "TGF Destinations",
+    siteName: "TGFDestinations",
     images: [
       {
-        url: "/TGFD-og.jpeg", // Must be in the /public folder
+        url: "/TGFD-og.jpeg",
         width: 963,
         height: 1280,
-        alt: "TGF Destinations Luxury Travel Brochure",
+        alt: "TGFDestinations Luxury Travel Brochure",
       },
     ],
     locale: "en_US",
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TGF Destinations | 2026 Collection",
+    title: "TGFDestinations | 2026 Collection",
     description: "Explore curated luxury travel experiences.",
     images: ["/TGFD-og.jpeg"],
   },
@@ -52,12 +51,14 @@ export default function Home() {
             />
           </div>
 
-          {/* Luxury CTA */}
+          {/* WhatsApp CTA */}
           <a
-            href="tel:+2348103107194"
-            className="bg-[#C7A86E] text-[#EAF7FE] px-7 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg shadow-[#C7A86E]/20 hover:bg-[#b8985d] hover:-translate-y-0.5 transition-all active:scale-95"
+            href="https://wa.me/2348103107194?text=Hello%20TGF%20Destinations!%20I%20just%20viewed%20your%202026%20Collection%20and%20would%20love%20to%20plan%20a%20trip."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#C7A86E] text-[#EAF7FE] px-7 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg shadow-[#C7A86E]/20 hover:bg-[#b8985d] hover:-translate-y-0.5 transition-all active:scale-95 text-center"
           >
-            Plan Your Journey
+            Let’s plan your trip
           </a>
         </div>
       </header>
@@ -73,22 +74,31 @@ export default function Home() {
               Travel Advisory Excellence
             </span>
             <h1 className="text-4xl md:text-6xl font-serif italic text-[#3A2A12] mb-6 leading-tight">
-              TGF Destinations <span className="font-sans not-italic font-light opacity-60">| 2026 Collection</span>
+              TGFDestinations <span className="font-sans not-italic font-light opacity-60">| 2026 Collection</span>
             </h1>
             <p className="max-w-xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light">
               Experience the art of travel. Flip through our digital brochure to 
-              discover curated escapes designed for the modern explorer.
+              discover curated escapes designed for the modern travel lover.
             </p>
           </div>
 
-          {/* Brochure/Iframe Wrapper */}
-          <div className="relative w-full aspect-[16/10] md:aspect-[16/9] bg-white p-1 rounded-2xl shadow-[0_40px_100px_-20px_rgba(58,42,18,0.25)] border border-white/50 overflow-hidden">
+          {/* Brochure/Iframe Wrapper - Responsive Optimized */}
+          <div className="group relative w-full h-[500px] md:h-auto md:aspect-[16/9] bg-white p-1 rounded-2xl shadow-[0_40px_100px_-20px_rgba(58,42,18,0.25)] border border-white/50 overflow-hidden transition-all duration-500">
+            
+            {/* The Iframe with height scaling to hide bottom bar branding */}
             <iframe
-              src="https://heyzine.com/flip-book/2c159cf48d.html"
-              className="w-full h-full rounded-xl bg-[#EAF7FE]"
+              src="https://heyzine.com/flip-book/8ece0c64b5.html"
+              className="w-full h-[103%] md:h-[105%] rounded-xl bg-[#EAF7FE] border-0"
               allowFullScreen
             ></iframe>
             
+            {/* Decorative Overlay Label (Visible on Hover) */}
+            <div className="absolute top-4 left-4 pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="bg-[#3A2A12]/80 backdrop-blur-sm text-[#C7A86E] text-[8px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                Interactive Viewer
+              </span>
+            </div>
+
             {/* Background glow for depth */}
             <div className="absolute -z-10 inset-0 bg-[#C7A86E]/10 blur-3xl rounded-full translate-y-20"></div>
           </div>
@@ -107,9 +117,9 @@ export default function Home() {
           
           <div className="flex flex-col items-center md:items-start gap-2">
             <p className="text-[11px] uppercase tracking-[0.2em] font-black text-[#3A2A12]">
-              TGF Destinations
+              TGFDestinations
             </p>
-            <p className="text-[10px] opacity-40 font-medium">
+            <p className="text-[10px] opacity-40 font-medium text-center md:text-left">
               © 2026 Crafted for the Modern Traveler.
             </p>
           </div>
