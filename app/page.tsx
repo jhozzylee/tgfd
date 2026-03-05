@@ -44,7 +44,7 @@ export default function Home() {
             <Image
               src="/logo.svg" 
               alt="TGF Destinations Logo"
-              width={95} 
+              width={60} 
               height={32}
               priority
               className="object-contain"
@@ -76,34 +76,42 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-serif italic text-[#3A2A12] mb-6 leading-tight">
               TGFDestinations <span className="font-sans not-italic font-light opacity-60">| 2026 Collection</span>
             </h1>
-            <p className="max-w-xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light">
+            <p className="max-w-xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light mb-10">
               Experience the art of travel. Flip through our digital brochure to 
               discover curated escapes designed for the modern travel lover.
             </p>
+
+            {/* ACTION BUTTONS */}
+            <div className=" items-center justify-center ">
+              <a
+                href="https://www.getyourguide.com?partner_id=PNUBATW&cmp=share_to_earn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto border border-[#3A2A12]/20 text-[#3A2A12] px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#C7A86E] hover:text-[#EAF7FE] transition-all active:scale-95"
+              >
+                Book activities on GetYourGuide
+              </a>
+            </div>
           </div>
 
           {/* Brochure/Iframe Wrapper - Responsive Optimized */}
           <div className="group relative w-full h-[500px] md:h-auto md:aspect-[16/9] bg-white p-1 rounded-2xl shadow-[0_40px_100px_-20px_rgba(58,42,18,0.25)] border border-white/50 overflow-hidden transition-all duration-500">
             
-            {/* The Iframe with height scaling to hide bottom bar branding */}
             <iframe
               src="https://heyzine.com/flip-book/8ece0c64b5.html"
               className="w-full h-[103%] md:h-[105%] rounded-xl bg-[#EAF7FE] border-0"
               allowFullScreen
             ></iframe>
             
-            {/* Decorative Overlay Label (Visible on Hover) */}
             <div className="absolute top-4 left-4 pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <span className="bg-[#3A2A12]/80 backdrop-blur-sm text-[#C7A86E] text-[8px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                 Interactive Viewer
               </span>
             </div>
 
-            {/* Background glow for depth */}
             <div className="absolute -z-10 inset-0 bg-[#C7A86E]/10 blur-3xl rounded-full translate-y-20"></div>
           </div>
 
-          {/* Interactive Hint */}
           <p className="mt-10 text-[9px] uppercase tracking-[0.3em] font-bold opacity-40 animate-pulse">
             Scroll to flip · Tap to expand
           </p>
