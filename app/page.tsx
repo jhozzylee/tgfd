@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: "TGFDestinations",
     images: [
       {
-        url: "/TGFD-og.jpeg",
+        url: "/TGFD-og.jpg",
         width: 963,
         height: 1280,
         alt: "TGFDestinations Luxury Travel Brochure",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TGFDestinations | 2026 Collection",
     description: "Explore curated luxury travel experiences.",
-    images: ["/TGFD-og.jpeg"],
+    images: ["/TGFD-og.jpg"],
   },
 };
 
