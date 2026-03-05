@@ -98,7 +98,7 @@ export default function Home() {
           <div className="group relative w-full h-[500px] md:h-auto md:aspect-[16/9] bg-white p-1 rounded-2xl shadow-[0_40px_100px_-20px_rgba(58,42,18,0.25)] border border-white/50 overflow-hidden transition-all duration-500">
             
             <iframe
-              src="https://heyzine.com/flip-book/8ece0c64b5.html"
+              src="https://heyzine.com/flip-book/3d5650da35.html"
               className="w-full h-[103%] md:h-[105%] rounded-xl bg-[#EAF7FE] border-0"
               allowFullScreen
             ></iframe>
