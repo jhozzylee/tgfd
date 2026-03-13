@@ -53,7 +53,7 @@ export default function Home() {
 
           {/* WhatsApp CTA */}
           <a
-            href="https://wa.me/2348103107194?text=Hello%20TGF%20Destinations!%20I%20just%20viewed%20your%202026%20Collection%20and%20would%20love%20to%20plan%20a%20trip."
+            href="https://wa.me/2348103107194?text=Hi%20team%20TGFD!%20I%20have%20just%20viewed%20your%20travel%20brochure%20and%20would%20love%20to%20plan%20a%20trip%20with%20you."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#C7A86E] text-[#EAF7FE] px-7 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg shadow-[#C7A86E]/20 hover:bg-[#b8985d] hover:-translate-y-0.5 transition-all active:scale-95 text-center"
