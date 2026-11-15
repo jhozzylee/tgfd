@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex justify-center gap-10 text-xl text-[var(--foreground)]/60">
           <a
-            href="https://www.instagram.com/tgfdestinations?igsh=MTVsYm92ZHRmdjlhaA=="
+            href="https://www.instagram.com/__tgfd?dlrf=ZG5rNGpzYWZzMWd0&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

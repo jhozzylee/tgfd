@@ -846,7 +846,7 @@ export default function SurveyPage() {
               type="button"
               onClick={previousStep}
               disabled={step === 0 || submitting}
-              className="rounded-full border border-[#C7A86E] px-5 py-2 font-body text-xs font-semibold tracking-tight text-[#3A2A12] transition hover:bg-[#C7A86E]/10 disabled:cursor-not-allowed disabled:opacity-30"
+              className="rounded-xl border border-[#C7A86E] px-5 py-2 font-body text-xs font-semibold tracking-tight text-[#3A2A12] transition hover:bg-[#C7A86E]/10 disabled:cursor-not-allowed disabled:opacity-30"
             >
               Prev
             </button>
@@ -855,7 +855,7 @@ export default function SurveyPage() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="rounded-full bg-[#C7A86E] px-6 py-2 font-body text-xs font-semibold tracking-tight text-white transition hover:bg-[#B8985D]"
+                className="rounded-xl bg-[#C7A86E] px-6 py-2 font-body text-xs font-semibold tracking-tight text-white transition hover:bg-[#B8985D]"
               >
                 Next
               </button>

@@ -3,7 +3,8 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg";
   href?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
@@ -14,26 +15,38 @@ type ButtonProps = {
 export default function Button({
   children,
   variant = "primary",
+  size = "md",
   href,
   type = "button",
   disabled = false,
   className = "",
   onClick,
 }: ButtonProps) {
+  // Modern, editorial baseline styling (less bulky, more refined)
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.15em] transition-all duration-300";
+    "inline-flex items-center justify-center font-body font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C7A86E]/40";
+
+  const sizes = {
+    sm: "px-4 py-2 text-xs tracking-wider rounded-lg",
+    md: "px-6 py-3 text-xs tracking-wider rounded-xl",
+    lg: "px-8 py-4 text-sm tracking-widest rounded-xl",
+  };
 
   const variants = {
     primary:
-      "bg-[#C7A86E] text-white hover:bg-[#B8985D] shadow-lg shadow-[#C7A86E]/20",
+      "bg-[#C7A86E] text-white hover:bg-[#B8985D] shadow-sm shadow-[#C7A86E]/15 hover:shadow-md hover:shadow-[#C7A86E]/20",
     secondary:
-      "bg-[#3A2A12] text-white hover:bg-[#4D3A20]",
+      "bg-[#3A2A12] text-white hover:bg-[#4D3A20] shadow-sm",
     outline:
-      "border border-[#3A2A12]/20 text-[#3A2A12] hover:bg-[#C7A86E] hover:text-white hover:border-[#C7A86E]",
+      "border border-[#E4DED3] bg-transparent text-[#3A2A12] hover:border-[#C7A86E] hover:bg-[#C7A86E]/10",
+    ghost:
+      "bg-transparent text-[#3A2A12] hover:bg-[#C7A86E]/10",
   };
 
-  const styles = `${baseStyles} ${variants[variant]} ${
-    disabled ? "opacity-50 cursor-not-allowed" : "active:scale-[0.97]"
+  const styles = `${baseStyles} ${sizes[size]} ${variants[variant]} ${
+    disabled
+      ? "opacity-40 cursor-not-allowed shadow-none"
+      : "active:scale-[0.98]"
   } ${className}`;
 
   if (href) {
