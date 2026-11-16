@@ -471,7 +471,6 @@ export default function SurveyPage() {
             <Button
             href="https://www.instagram.com/__tgfd?dlrf=ZG5rNGpzYWZzMWd0&utm_source=qr"
             variant="secondary"
-            className="border-[#EAF7FE]/40 text-[#EAF7FE] hover:border-[#EAF7FE] hover:bg-[#EAF7FE]/10"
             >
               Follow on Instagram
             </Button>
@@ -676,7 +675,6 @@ export default function SurveyPage() {
                     "Arriving somewhere new alone",
                     "Realising no one would notice/help me if something went wrong",
                     "Being recognised or tracked",
-                    "None of the above",
                   ]}
                 />
               </Question>
@@ -713,8 +711,9 @@ export default function SurveyPage() {
                     "I use the satellite calling feature on my Apple Watch Ultra 3, Ultra 4 or my Google Pixel watch.",
                     "I use the satellite calling feature on my iPhone 17+, with another iPhone 17+ user.",
                     "I use the paired watch calling feature on my Apple Watch Ultra 2 & below, Samsung Watch Ultra2 & below, or any other Android watch.",
-                    "I use my phone's location-sharing feature with a friend or partner, if together on the trip, using my mobile device.",
+                    "I use my phone's location-sharing feature with a friend or partner, if together on the trip.",
                     "I purchase a stand-alone plan for my watch whenever I'm in a new country, in case I lose my phone.",
+                    "None of the above",
                   ]}
                 />
               </Question>
@@ -816,7 +815,7 @@ export default function SurveyPage() {
                   onChange={(value) => update("paymentPreference", value)}
                   options={[
                     "Per trip",
-                    "Monthly, Quarterly or Annual club member",
+                    "Monthly, Quarterly or Annual club membership",
                     "According to my projected travel frequency at any given time, i.e. Flexible plans/options",
                   ]}
                 />
