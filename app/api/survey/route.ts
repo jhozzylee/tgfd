@@ -1,12 +1,13 @@
+
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { email, answers } = await request.json();
+    const { name, email, answers } = await request.json();
 
-    if (!email || !answers) {
+    if (!name?.trim() || !answers) {
       return NextResponse.json(
-        { success: false, message: "Missing survey information." },
+        { success: false, message: "Missing required information." },
         { status: 400 }
       );
     }
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
     const scriptUrl = process.env.GOOGLE_SHEETS_SCRIPT_URL;
 
     if (!scriptUrl) {
-      throw new Error("Google Sheets URL is not configured.");
+      throw new Error("Google Sheets is not configured.");
     }
 
     const response = await fetch(scriptUrl, {
@@ -22,20 +23,39 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, answers }),
-      redirect: "follow",
+      body: JSON.stringify({
+        name,
+        email: email || "",
+        answers,
+      }),
       cache: "no-store",
+      redirect: "follow",
     });
 
-    const result = await response.json();
+    const responseText = await response.text();
 
-    if (!result.success) {
-      throw new Error(result.message || "Submission failed.");
+let result;
+
+try {
+  result = JSON.parse(responseText);
+} catch {
+  console.error("Google Apps Script returned:", {
+    status: response.status,
+    url: response.url,
+    contentType: response.headers.get("content-type"),
+    response: responseText.slice(0, 500),
+  });
+
+  throw new Error("Google Apps Script returned HTML instead of JSON.");
+}
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "Google Sheets submission failed.");
     }
 
     return NextResponse.json({
       success: true,
-      message: "Your response has been submitted.",
+      message: "Survey submitted successfully.",
     });
 
   } catch (error) {
@@ -44,7 +64,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        message: "We couldn't submit your response. Please try again.",
+        message: "Unable to submit your response. Please try again.",
       },
       { status: 500 }
     );

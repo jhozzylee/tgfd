@@ -275,6 +275,7 @@ function Ranking({
 
 export default function SurveyPage() {
   const [step, setStep] = useState(0);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [answers, setAnswers] = useState<Answers>(initialAnswers);
   const [error, setError] = useState("");
@@ -289,17 +290,17 @@ export default function SurveyPage() {
 
   const remainingFeatures = useMemo(
     () =>
-      featureOptions.filter(
-        (feature) => feature !== answers.mostImportantFeature
-      ),
-    [answers.mostImportantFeature]
-  );
+        answers.otherFeaturePriorities.filter(
+            (feature) => feature !== answers.mostImportantFeature
+        ),
+        [answers.otherFeaturePriorities, answers.mostImportantFeature]
+    );
 
   function validateStep() {
     if (step === 0) {
-      if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return "Please enter a valid email address.";
-      }
+     if (!name.trim()) {
+        return "Please enter your name.";
+    }
 
       if (
         !answers.country ||
@@ -349,10 +350,9 @@ export default function SurveyPage() {
       if (
         !answers.mostImportantFeature ||
         remainingFeatures.length !== 2 ||
-        answers.otherFeaturePriorities.length !== 3 ||
         !answers.serviceLikelihood ||
         !answers.coordinationValue
-      ) {
+    ) {
         return "Please answer all required questions before continuing.";
       }
     }
@@ -365,6 +365,12 @@ export default function SurveyPage() {
       ) {
         return "Please answer all required questions before submitting.";
       }
+      if (
+        email.trim() &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+    ) {
+        return "Please enter a valid email address.";
+    }
     }
 
     return "";
@@ -407,18 +413,14 @@ export default function SurveyPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
-          answers: {
-            ...answers,
-            otherFeaturePriorities: remainingFeatures
-              .map(
-                (feature) =>
-                  answers.otherFeaturePriorities.indexOf(feature) + 1
-              )
-              .sort((a, b) => a - b)
-              .map((position) => position),
-          },
+            name: name.trim(),
+            email: email.trim(),
+            answers: {
+                ...answers,
+                otherFeaturePriorities: remainingFeatures,
+            },
         }),
+
       });
 
       const result = await response.json();
@@ -449,7 +451,7 @@ export default function SurveyPage() {
           </div>
 
           <h1 className="font-heading text-3xl text-[#3A2A12] sm:text-4xl">
-            Thank You!
+            Thank You{name.trim() ? `, ${name.trim()}` : ""}!
           </h1>
 
           <p className="mt-4 font-body text-sm leading-7 text-[#806F57]">
@@ -466,7 +468,7 @@ export default function SurveyPage() {
       <div className="mx-auto max-w-2xl">
         <div className="mb-8 text-center">
           <p className="mb-2 font-body text-[10px] font-semibold uppercase tracking-[0.3em] text-[#B8985D]">
-            TGFDestinations
+            TGFD
           </p>
 
           <h1 className="font-heading text-2xl leading-tight text-[#3A2A12] sm:text-4xl">
@@ -474,8 +476,7 @@ export default function SurveyPage() {
           </h1>
 
           <p className="mx-auto mt-3 max-w-lg font-body text-xs leading-6 text-[#806F57] sm:text-sm">
-            Your perspective will help us understand what travellers need to feel
-            more confident and secure.
+            We would love to understand your travel profile, how you imagine safety on a trip and prepare for emergencies. Responses to this survey are completely voluntary.
           </p>
         </div>
 
@@ -503,12 +504,12 @@ export default function SurveyPage() {
         <div className="space-y-8 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
           {step === 0 && (
             <>
-              <Question number={1} title="What is your email address?">
+              <Question number={1} title="What can we call you?">
                 <TextField
-                  type="email"
-                  value={email}
-                  onChange={setEmail}
-                  placeholder="Enter your email address"
+                  type="text"
+                  value={name}
+                  onChange={setName}
+                  placeholder="Enter your name"
                 />
               </Question>
 
@@ -828,6 +829,19 @@ export default function SurveyPage() {
                   ]}
                 />
               </Question>
+
+              <Question
+              number={23}
+              title="Where can we send early access and updates on what we're building?"
+              required={false}
+              >
+                <TextField
+                type="email"
+                value={email}
+                onChange={setEmail}
+                placeholder="Enter your email address (optional)"
+                />
+            </Question>
             </>
           )}
 
@@ -873,7 +887,7 @@ export default function SurveyPage() {
         </div>
 
         <p className="mt-6 text-center font-body text-xs text-[#806F57]">
-          Your responses will help us shape a better travel experience.
+          Contact email: Enquiries@tgfdestinations.com
         </p>
       </div>
     </main>

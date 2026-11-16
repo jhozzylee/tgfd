@@ -10,11 +10,11 @@ export default function Magazine() {
         <div className="text-center mb-12">
 
           <span className="text-[var(--primary)] text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            Travel Advisory Excellence
+            Travel Advisory | Safety | Excellence
           </span>
 
           <h1 className="text-4xl md:text-6xl font-heading italic text-[var(--foreground)] mb-6 leading-tight">
-            TGFDestinations{" "}
+            ⁠⁠TGFD Brochure{" "}
             <span className="font-body not-italic font-light opacity-60">
               | 2026 Collection
             </span>
@@ -22,7 +22,7 @@ export default function Magazine() {
 
           <p className="max-w-xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light mb-10">
             Experience the art of travel. Flip through our digital brochure
-            to discover curated escapes designed for the modern travel lover.
+            to discover why you should travel with us
           </p>
 
           {/* GetYourGuide CTA */}

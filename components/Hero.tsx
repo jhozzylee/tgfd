@@ -49,17 +49,17 @@ export default function Hero() {
         </span>
 
         <h1 className="mx-auto max-w-3xl font-heading text-5xl font-normal leading-[1.1] sm:text-6xl md:text-7xl lg:text-8xl">
-          A Better Way to Travel Is Coming.
+          A Better Way To Travel Is Coming.
         </h1>
 
         <p className="mx-auto mt-7 max-w-xl font-body text-sm leading-7 text-white/85 sm:text-base md:text-lg">
-          We're building something new, designed to make every journey better.
+          We're building something amazing, designed to make every trip better.
           Be among the first to experience it.
         </p>
 
         <div className="mt-9 flex justify-center">
           <Button href="/survey" variant="primary">
-            Join the Waitlist
+            Take the survey to join the club
           </Button>
         </div>
 

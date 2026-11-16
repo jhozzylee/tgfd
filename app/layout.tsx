@@ -13,12 +13,12 @@ const garnetta = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "TGFDestinations",
-    template: "%s | TGFDestinations",
+    default: "TGFD",
+    template: "%s | TGFD",
   },
   description:
     "Explore curated luxury travel experiences and bespoke itineraries.",
-  metadataBase: new URL("https://tgfd-delta.vercel.app/"),
+  metadataBase: new URL("https://www.tgfd.io"),
 };
 
 export default function RootLayout({

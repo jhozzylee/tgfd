@@ -9,11 +9,11 @@ export default function Footer() {
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <p className="font-body text-[11px] uppercase tracking-[0.2em] font-bold text-[var(--foreground)]">
-            TGFDestinations
+            TGFD
           </p>
 
           <p className="font-body text-[10px] opacity-40 font-medium text-center md:text-left">
-            © {new Date().getFullYear()} Crafted for the Modern Traveler.
+            © {new Date().getFullYear()} Crafted for Those Who Travel Well
           </p>
         </div>
 
