@@ -54,7 +54,7 @@ export default function Hero() {
 
         <p className="mx-auto mt-7 max-w-xl font-body text-sm leading-7 text-white/85 sm:text-base md:text-lg">
           We're building something amazing, designed to make every trip better.
-          Be among the first to experience it.
+          Be among the first to experience it 🍁.
         </p>
 
         <div className="mt-9 flex justify-center">

@@ -22,7 +22,7 @@ export default function Magazine() {
 
           <p className="max-w-xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light mb-10">
             Experience the art of travel. Flip through our digital brochure
-            to discover why you should travel with us
+            to discover why you should travel with us.
           </p>
 
           {/* GetYourGuide CTA */}
@@ -31,7 +31,7 @@ export default function Magazine() {
             href="https://www.getyourguide.com?partner_id=PNUBATW&cmp=share_to_earn"
             className="w-full sm:w-auto"
           >
-            Book activities on GetYourGuide
+            Book your activities on GetYourGuide
           </Button>
 
         </div>

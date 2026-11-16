@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 type Answers = {
   country: string;
@@ -15,7 +17,7 @@ type Answers = {
   cancelledTrips: string;
   uneasyMoment: string;
   currentSafetyMeasures: string;
-  emergencyFeatures: string[];
+  emergencyFeatures: string;
   locationSharing: string;
   mostImportantFeature: string;
   otherFeaturePriorities: string[];
@@ -43,7 +45,7 @@ const initialAnswers: Answers = {
   cancelledTrips: "",
   uneasyMoment: "",
   currentSafetyMeasures: "",
-  emergencyFeatures: [],
+  emergencyFeatures: "",
   locationSharing: "",
   mostImportantFeature: "",
   otherFeaturePriorities: [
@@ -446,18 +448,34 @@ export default function SurveyPage() {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#EAF7FE] px-5 py-20">
         <div className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-sm sm:p-12">
-          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#EAF7FE] text-2xl text-[#C7A86E]">
+          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#C7A86E] text-2xl text-[#EAF7FE]">
             ✓
           </div>
 
           <h1 className="font-heading text-3xl text-[#3A2A12] sm:text-4xl">
-            Thank You{name.trim() ? `, ${name.trim()}` : ""}!
+            Thank You {name.trim() ? `, ${name.trim()}` : ""}!
           </h1>
 
-          <p className="mt-4 font-body text-sm leading-7 text-[#806F57]">
+          <p className="mt-4 font-body text-sm leading-7 text-[#3A2A12]">
             Your responses have been submitted successfully. Thank you for
             helping us shape a better and safer travel experience.
           </p>
+
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/" aria-label="Go to homepage" className="flex items-center">
+            <Button href="/" variant="primary">
+            Back to Home
+            </Button>
+            </Link>
+            
+            <Button
+            href="https://www.instagram.com/__tgfd?dlrf=ZG5rNGpzYWZzMWd0&utm_source=qr"
+            variant="secondary"
+            className="border-[#EAF7FE]/40 text-[#EAF7FE] hover:border-[#EAF7FE] hover:bg-[#EAF7FE]/10"
+            >
+              Follow on Instagram
+            </Button>
+            </div>
         </div>
       </main>
     );
@@ -658,6 +676,7 @@ export default function SurveyPage() {
                     "Arriving somewhere new alone",
                     "Realising no one would notice/help me if something went wrong",
                     "Being recognised or tracked",
+                    "None of the above",
                   ]}
                 />
               </Question>
@@ -685,9 +704,9 @@ export default function SurveyPage() {
 
               <Question
                 number={14}
-                title="Which of these do you currently have in place, in the case of an emergency, specifically on a trip?"
+                title="Which of these do you currently have in place, in the case of an emergency on a trip?"
               >
-                <CheckboxOptions
+                <RadioOptions
                   value={answers.emergencyFeatures}
                   onChange={(value) => update("emergencyFeatures", value)}
                   options={[
@@ -797,8 +816,7 @@ export default function SurveyPage() {
                   onChange={(value) => update("paymentPreference", value)}
                   options={[
                     "Per trip",
-                    "Monthly",
-                    "Quarterly or Annual club member",
+                    "Monthly, Quarterly or Annual club member",
                     "According to my projected travel frequency at any given time, i.e. Flexible plans/options",
                   ]}
                 />
@@ -832,7 +850,7 @@ export default function SurveyPage() {
 
               <Question
               number={23}
-              title="Where can we send early access and updates on what we're building?"
+              title="Enter your email address to join club TGFD on launch day"
               required={false}
               >
                 <TextField
