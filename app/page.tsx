@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description:
     "Explore curated luxury travel experiences and bespoke itineraries. Your next chapter begins with TGFDestinations.",
   openGraph: {
-    title: "TGFDestinations | 2026 Travel Collection",
+    title: "Travel With TGFD",
     description:
-      "Discover our world of bespoke travel and exclusive retreats.",
+      "Discover our world of bespoke travel excellence.",
     url: "/",
-    siteName: "TGFDestinations",
+    siteName: "TGFD",
     images: [
       {
         url: "/TGFD-og.jpg",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TGFDestinations | 2026 Collection",
+    title: "TTravel With TGFD",
     description: "Explore curated luxury travel experiences.",
     images: ["/TGFD-og.jpg"],
   },
